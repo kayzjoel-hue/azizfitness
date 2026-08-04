@@ -49,7 +49,8 @@ img{max-width:100%;height:auto;display:block;}
 .plan-price span{font-size:1rem;color:var(--muted);}
 .plan-card ul{list-style:none;padding:0;margin:0 0 1.5rem;color:var(--muted);}
 .plan-card li{margin-bottom:.8rem;}
-.badge{position:absolute;top:1.5rem;right:1.5rem;background:var(--accent);color:#fff;padding:.45rem .9rem;border-radius:999px;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;}
+.badge{position:absolute;top:1.5rem;right:1.5rem;background:var(--accent);color:#fff;padding:.45rem .9rem;border-radius:999px;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;animation:badge-pulse 2.5s ease-in-out infinite;box-shadow:0 16px 24px rgba(230,57,70,0.25);}
+@keyframes badge-pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.05);opacity:0.9;}}
 .section-split{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;}
 .section-split.reverse{direction:rtl;}
 .section-split.reverse .section-copy{direction:ltr;}
