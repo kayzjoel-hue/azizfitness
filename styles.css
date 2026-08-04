@@ -85,5 +85,6 @@ img{max-width:100%;height:auto;display:block;}
 @media(max-width:980px){.hero-grid,.section-split,.section-split.reverse,.contact-grid,.card-grid,.trainers-grid,.package-grid,.success-grid,.resource-grid,.faq-grid{grid-template-columns:1fr;} .site-nav{display:none;}.header-inner{justify-content:space-between;} .hero-copy h1{font-size:2.8rem;} .hero-stats{grid-template-columns:repeat(2,1fr);} .hero-grid{text-align:center;gap:1.5rem;} .hero-actions{justify-content:center;} .hero-image{order:-1;border-radius:20px;margin-bottom:1rem;} }
 @media(max-width:640px){.hero-copy h1{font-size:2.4rem;line-height:1.1;} .hero-copy p{font-size:1rem;margin:0 auto 1.5rem;max-width:32rem;} .hero-actions{flex-direction:column;} .section-header h2{font-size:2rem;}
 .hero-stats{position:sticky;top:70px;z-index:50;background:rgba(5,5,5,0.95);backdrop-filter:blur(12px);border-top:1px solid var(--border);border-bottom:1px solid var(--border);} .success-card h3,.success-card p{white-space:normal;overflow:visible;text-overflow:unset;} .success-card{padding:1.2rem;}
-}
+.plan-card-popular .badge{box-shadow:0 20px 36px rgba(230,57,70,0.4);transform:scale(1.02);} }
+
 
