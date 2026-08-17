@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AZIZFITNESS | Resources</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">AZIZFITNESS</a>
-      <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="memberships.html">Memberships</a>
-        <a href="classes.html">Classes</a>
-        <a href="training.html">Personal Training</a>
-        <a href="nutrition.html">Nutrition</a>
-        <a href="success.html">Success</a>
-        <a href="resources.html">Resources</a>
-        <a href="contact.html">Contact</a>
-        <a href="portal.html">Portal</a>
-      </nav>
-      <a class="btn btn-primary" href="contact.html">Join Now</a>
-    </div>
-  </header>
-
-  <main>
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="AZIZFITNESS | Resources">
     <section class="section section-light">
       <div class="container">
         <div class="section-header">
@@ -45,7 +21,7 @@
     <section class="section section-dark">
       <div class="container section-split reverse">
         <div class="section-image">
-          <img src="images/coach-sarah.jpg" alt="Resources and coaching" loading="lazy">
+          <img src="/coach-sarah.jpg" alt="Resources and coaching" loading="lazy">
         </div>
         <div class="section-copy">
           <span class="eyebrow">Stay informed</span>
@@ -56,21 +32,8 @@
             <div><strong>Nutrition guides</strong><p>Simple advice that helps your meals support your training.</p></div>
             <div><strong>Event announcements</strong><p>Get updates on classes, workshops, and club activities.</p></div>
           </div>
-          <a class="btn btn-primary" href="contact.html">Get resource access</a>
+          <a class="btn btn-primary" href="/contact">Get resource access</a>
         </div>
       </div>
     </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 AZIZFITNESS — Resource hub for members and visitors.</p>
-      <p>Built to support your training journey.</p>
-    </div>
-  </footer>
-  <a class="float-wa" href="https://wa.me/971523463618" target="_blank">📱 Chat on WhatsApp</a>
-</body>
-</html>
-
-
-
+</Layout>

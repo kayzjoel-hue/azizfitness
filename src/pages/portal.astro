@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AZIZFITNESS | Member Portal</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">AZIZFITNESS</a>
-      <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="memberships.html">Memberships</a>
-        <a href="classes.html">Classes</a>
-        <a href="training.html">Personal Training</a>
-        <a href="nutrition.html">Nutrition</a>
-        <a href="success.html">Success</a>
-        <a href="resources.html">Resources</a>
-        <a href="contact.html">Contact</a>
-        <a href="portal.html">Portal</a>
-      </nav>
-      <a class="btn btn-primary" href="contact.html">Join Now</a>
-    </div>
-  </header>
-
-  <main>
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="AZIZFITNESS | Member Portal">
     <section class="section section-light">
       <div class="container">
         <div class="section-header">
@@ -45,7 +21,7 @@
     <section class="section section-dark">
       <div class="container section-split reverse">
         <div class="section-image">
-          <img src="images/coaches.jpg" alt="Portal preview" loading="lazy">
+          <img src="/coaches.jpg" alt="Portal preview" loading="lazy">
         </div>
         <div class="section-copy">
           <span class="eyebrow">Platform roadmap</span>
@@ -56,21 +32,8 @@
             <div><strong>Coach tools</strong><p>Manage clients, sessions, and program notes.</p></div>
             <div><strong>Growth-ready</strong><p>Design the site to support future subscriptions and access tiers.</p></div>
           </div>
-          <a class="btn btn-primary" href="contact.html">Ask about the portal</a>
+          <a class="btn btn-primary" href="/contact">Ask about the portal</a>
         </div>
       </div>
     </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 AZIZFITNESS — Future member portal planning.</p>
-      <p>Ready for the next phase of fitness platform growth.</p>
-    </div>
-  </footer>
-  <a class="float-wa" href="https://wa.me/971523463618" target="_blank">📱 Chat on WhatsApp</a>
-</body>
-</html>
-
-
-
+</Layout>
