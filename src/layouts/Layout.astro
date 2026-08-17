@@ -1,0 +1,45 @@
+---
+const { title } = Astro.props;
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="stylesheet" href="/styles.css">
+	</head>
+	<body>
+		<header class="site-header">
+            <div class="container header-inner">
+              <a class="brand" href="/"><img src="/Logo.png" alt="AZIZFITNESS logo" class="brand-logo"><span>AZIZFITNESS</span></a>
+              <nav class="site-nav">
+                <a href="/">Home</a>
+                <a href="/memberships">Memberships</a>
+                <a href="/classes">Classes</a>
+                <a href="/training">Personal Training</a>
+                <a href="/nutrition">Nutrition</a>
+                <a href="/success">Success</a>
+                <a href="/resources">Resources</a>
+                <a href="/contact">Contact</a>
+                <a href="/portal">Portal</a>
+              </nav>
+              <button class="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <a class="btn btn-gold" href="/contact">Start Journey</a>
+            </div>
+          </header>
+		<main>
+			<slot />
+		</main>
+		<footer class="site-footer">
+            <div class="container footer-inner">
+              <p>© 2026 AZIZFITNESS — Modern OS-Style Premium Gym Dubai</p>
+            </div>
+          </footer>
+	</body>
+</html>

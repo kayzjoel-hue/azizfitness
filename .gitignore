@@ -1,9 +1,0 @@
-# Archive and non-deploy assets
-/archive/
-
-# Ignore OS files
-.DS_Store
-Thumbs.db
-
-# Ignore editor state files
-.vscode/

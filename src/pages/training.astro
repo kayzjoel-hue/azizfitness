@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AZIZFITNESS | Personal Training</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#e63946">
-  <meta name="theme-color" content="#050505">
-  <link rel="manifest" href="site.webmanifest">
-</head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html"><img src="Logo.png" alt="AZIZFITNESS logo" class="brand-logo"><span>AZIZFITNESS</span></a>
-      <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="memberships.html">Memberships</a>
-        <a href="classes.html">Classes</a>
-        <a href="training.html">Personal Training</a>
-        <a href="nutrition.html">Nutrition</a>
-        <a href="success.html">Success</a>
-        <a href="resources.html">Resources</a>
-        <a href="contact.html">Contact</a>
-        <a href="portal.html">Portal</a>
-      </nav>
-      <a class="btn btn-primary" href="contact.html">Join Now</a>
-    </div>
-  </header>
-
-  <main>
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="AZIZFITNESS | Personal Training">
     <section class="section section-light">
       <div class="container">
         <div class="section-header">
@@ -41,17 +11,17 @@
         </div>
         <div class="trainers-grid">
           <article class="trainer-card">
-            <img src="images/coach-aziz.jpg" alt="Coach Aziz">
+            <img src="/coach-aziz.jpg" alt="Coach Aziz">
             <h3>Coach Aziz</h3>
             <p>Strength and conditioning expert built for serious progress.</p>
           </article>
           <article class="trainer-card">
-            <img src="images/coach-sarah.jpg" alt="Coach Sarah">
+            <img src="/coach-sarah.jpg" alt="Coach Sarah">
             <h3>Coach Sarah</h3>
             <p>Nutrition and body recomposition specialist.</p>
           </article>
           <article class="trainer-card">
-            <img src="images/team.jpg" alt="Training team">
+            <img src="/team.jpg" alt="Training team">
             <h3>Coach Team</h3>
             <p>Holistic support for programs and accountability.</p>
           </article>
@@ -86,7 +56,7 @@
     <section class="section section-light">
       <div class="container section-split reverse">
         <div class="section-image">
-          <img src="images/training.jpg" alt="Personal training" loading="lazy">
+          <img src="/training.jpg" alt="Personal training" loading="lazy">
         </div>
         <div class="section-copy">
           <span class="eyebrow">Progress tracking</span>
@@ -101,18 +71,4 @@
         </div>
       </div>
     </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 AZIZFITNESS — Personal training and coaching packages.</p>
-      <p>Designed to scale your performance week by week.</p>
-    </div>
-  </footer>
-  <a class="float-wa" href="https://wa.me/971523463618" target="_blank">📱 Chat on WhatsApp</a>
-</body>
-</html>
-
-
-
-
+</Layout>
