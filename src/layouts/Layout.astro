@@ -1,0 +1,43 @@
+---
+const { title } = Astro.props;
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="stylesheet" href="/styles.css">
+	</head>
+	<body>
+        <div class="grain-overlay"></div>
+		<header class="site-header">
+            <div class="container header-inner">
+              <a class="brand" href="/"><img src="/Logo.png" alt="AZIZIFITNESS logo" class="brand-logo"><span>AZIZIFITNESS</span></a>
+              <nav class="site-nav">
+                <a href="/#origins">ORIGINS</a>
+                <a href="/#philosophy">PHILOSOPHY</a>
+                <a href="/#lifestyle">LIFESTYLE</a>
+                <a href="/#athletes">ATHLETES</a>
+                <a href="/#new-era">NEW ERA</a>
+                <a href="/#talk-show">TALK SHOW</a>
+              </nav>
+              <button class="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <a class="btn btn-gold" href="https://wa.me/971505026843?text=Hi%20AziziFitness%20I%20saw%20GET%20THE%20KIDS%20FIT%20and%20want%20to%20start%20my%20upgrade" target="_blank">START JOURNEY</a>
+            </div>
+          </header>
+		<main>
+			<slot />
+		</main>
+		<footer class="site-footer">
+            <div class="container footer-inner">
+              <p>© 2026 AZIZIFITNESS — Modern OS-Style Premium Gym Dubai</p>
+            </div>
+          </footer>
+	</body>
+</html>

@@ -1,17 +1,108 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
+<Layout title="AZIZIFITNESS | BUILT FROM WITHIN">
+    <!-- 1. PROLOGUE -->
+    <section id="prologue" class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">DUBAI • 130K COMMUNITY • GYMTown DIFC</span>
+          <img src="/images/social-proof.jpg" alt="AZIZI_FITNESS_DUBAI 115K" style="max-width:380px; border-radius:16px; border:1px solid #222; margin: 1rem 0;" />
+          <h1 style="font-size: 4rem;">BUILT FROM <span style="color: var(--gold);">WITHIN</span></h1>
+          <p>"Every journey begins with a heartbeat..." — Abdulazizi Musisi</p>
+          <div class="hero-actions">
+            <a class="btn btn-secondary" href="#">WATCH STORY</a>
+            <a class="btn btn-primary" href="#new-era">BEGIN YOUR UPGRADE</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="/images/hero-real.jpg" alt="Built from within" loading="lazy" style="object-fit:cover; filter:brightness(0.7)">
+        </div>
+      </div>
+    </section>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+    <!-- 2. ORIGINS -->
+    <section id="origins" class="section section-dark">
+      <div class="container">
+        <div class="section-header">
+            <h2>01 ORIGINS</h2>
+            <p>"I didn't grow up with everything. But I grew up with movement..."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PHILOSOPHY -->
+    <section id="philosophy" class="section">
+      <div class="container">
+        <div class="section-header">
+            <h2>02 PHILOSOPHY</h2>
+            <p>IT WASN'T BUILT IN A BOARDROOM. IT WAS BUILT IN SWEAT.</p>
+        </div>
+        <video src="/images/kids-drill-1.mp4" autoplay muted loop playsinline controls style="width:100%; border-radius:12px; border:1px solid #222; margin-bottom: 3rem;"></video>
+        <div class="card-grid">
+          <div class="plan-card"><h3>VertiMax Jumps</h3><p>Explosive power development</p></div>
+          <div class="plan-card"><h3>Agility Ladder</h3><p>Precision and footwork mastery</p></div>
+          <div class="plan-card"><h3>Resistance Sprints</h3><p>Linear speed and force production</p></div>
+          <div class="plan-card"><h3>Strength Circuits</h3><p>Functional conditioning</p></div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="font-size: 1.5rem; color: var(--gold);">"being better than yesterday"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LIFESTYLE -->
+    <section id="lifestyle" class="section section-dark">
+      <div class="container">
+        <div class="section-header">
+            <h2>03 LIFESTYLE</h2>
+            <p>FITNESS IS NOT A ONE-HOUR SESSION.</p>
+        </div>
+        <video src="/images/kids-drill-2.mp4" autoplay muted loop playsinline controls style="width:100%; border-radius:12px; margin-top:1.5rem"></video>
+      </div>
+    </section>
+
+    <!-- 5. ATHLETES -->
+    <section id="athletes" class="section">
+      <div class="container">
+        <div class="section-header">
+            <h2>04 ATHLETES</h2>
+        </div>
+        <div class="card-grid">
+            <div class="plan-card"><h3>THE COMEBACK</h3></div>
+            <div class="plan-card"><h3>THE BEGINNER</h3></div>
+            <div class="plan-card"><h3>THE COMPETITOR</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. NEW ERA -->
+    <section id="new-era" class="section section-dark">
+      <div class="container">
+        <div class="section-header">
+            <h2>05 NEW ERA</h2>
+            <p>THIS IS THE UPGRADE</p>
+        </div>
+        <div class="card-grid">
+            <div class="plan-card"><h3>AED 799</h3></div>
+            <div class="plan-card plan-card-popular"><h3>AED 1499 <span class="badge">POPULAR</span></h3></div>
+            <div class="plan-card"><h3>AED 2999</h3></div>
+        </div>
+        <div style="margin-top: 2rem; text-align: center;">
+            <p>Monthly 599 | Annual 5999 | Student 399</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. TALK SHOW -->
+    <section id="talk-show" class="section">
+      <div class="container">
+        <div class="section-header">
+            <h2>TALK SHOW</h2>
+        </div>
+        <div style="background: var(--bg); padding: 3rem; text-align: center; border: 1px solid var(--gold);">
+            <p style="color: var(--gold); font-size: 2rem;">FINAL MESSAGE</p>
+        </div>
+      </div>
+    </section>
+</Layout>

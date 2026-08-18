@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="AZIZFITNESS | Nutrition">
+    <section class="section section-light">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Nutrition</span>
+          <h2>Fuel your workouts with smart meal planning</h2>
+          <p>Nutrition plans designed around your goals, preferences, and schedule.</p>
+        </div>
+        <div class="section-split">
+          <div class="section-copy">
+            <div class="feature-list">
+              <div><strong>Meal Plans</strong><p>Custom menus for muscle gain, fat loss, or stability.</p></div>
+              <div><strong>Supplement Guidance</strong><p>Evidence-based recommendations for recovery and energy.</p></div>
+              <div><strong>Coaching</strong><p>Regular check-ins to keep your nutrition on track.</p></div>
+              <div><strong>Recipes</strong><p>Easy, delicious meals that support your training schedule.</p></div>
+            </div>
+            <a class="btn btn-secondary" href="/contact">Speak with a nutrition coach</a>
+          </div>
+          <div class="section-image">
+            <img src="/training.jpg" alt="Nutrition coaching" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Calculate Your Macros</span>
+          <h2>Fuel your goals with precision</h2>
+        </div>
+        <form id="macro-form" class="card-highlight" style="max-width: 600px; margin: 0 auto;">
+          <select name="gender"><option value="male">Male</option><option value="female">Female</option></select>
+          <input type="number" name="weight" placeholder="Weight (kg)" required>
+          <input type="number" name="height" placeholder="Height (cm)" required>
+          <input type="number" name="age" placeholder="Age" required>
+          <select name="activity">
+            <option value="1.2">Sedentary</option>
+            <option value="1.55">Moderately Active</option>
+            <option value="1.9">Highly Active</option>
+          </select>
+          <select name="goal">
+            <option value="maintain">Maintain</option>
+            <option value="cut">Fat Loss (-500 kcal)</option>
+            <option value="bulk">Muscle Gain (+500 kcal)</option>
+          </select>
+          <button type="submit" class="btn btn-primary">Calculate Macros</button>
+        </form>
+        <div id="macro-results" style="margin-top:2rem; max-width: 600px; margin: 2rem auto;"></div>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container section-split reverse">
+        <div class="section-image">
+          <img src="/hero.jpg" alt="Healthy meal prep" loading="lazy">
+        </div>
+        <div class="section-copy">
+          <span class="eyebrow">Plan features</span>
+          <h2>Nutrition support that fits your lifestyle</h2>
+          <p>From macro coaching to meal suggestions, we make nutrition easy to follow and match it to your training.</p>
+          <div class="feature-list">
+            <div><strong>Macro-balanced plans</strong><p>Nutrition frameworks that work for real life.</p></div>
+            <div><strong>Food variety</strong><p>Menus you’ll actually enjoy and sustain.</p></div>
+            <div><strong>Progress check-ins</strong><p>Adjustments that keep results moving forward.</p></div>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/971523463618?text=Hi%20Azizfitness%2C%20I%20want%20nutrition%20coaching">Start nutrition coaching</a>
+        </div>
+      </div>
+    </section>
+</Layout>
