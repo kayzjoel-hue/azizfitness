@@ -4,19 +4,30 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="AZIZIFITNESS | BUILT FROM WITHIN">
     <!-- 1. PROLOGUE -->
     <section id="prologue" class="hero-section">
-      <div class="container hero-grid">
+      <div class="container hero-editorial">
         <div class="hero-copy">
-          <span class="eyebrow">DUBAI • 130K COMMUNITY • GYMTown DIFC</span>
-          <img src="/images/social-proof.jpg" alt="AZIZI_FITNESS_DUBAI 115K" style="max-width:380px; border-radius:16px; border:1px solid #222; margin: 1rem 0;" />
-          <h1 style="font-size: 4rem;">BUILT FROM <span style="color: var(--gold);">WITHIN</span></h1>
+          <span class="eyebrow">DUBAI • BUILT FROM WITHIN</span>
+          <h1>BUILT FROM <span style="color: var(--gold);">WITHIN</span></h1>
           <p>"Every journey begins with a heartbeat..." — Abdulazizi Musisi</p>
           <div class="hero-actions">
-            <a class="btn btn-secondary" href="#">WATCH STORY</a>
+            <a href="https://www.instagram.com/azizifitness_dubai?utm_source=ig_web_button_share_sheet&amp;stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">FOLLOW THE STORY</a>
             <a class="btn btn-primary" href="#new-era">BEGIN YOUR UPGRADE</a>
+            <a class="btn btn-secondary" href="/contact">TALK TO A COACH</a>
           </div>
         </div>
-        <div class="hero-image">
-          <img src="/images/hero-real.jpg" alt="Built from within" loading="lazy" style="object-fit:cover; filter:brightness(0.7)">
+        <div class="visual-story" aria-label="AziziFitness visual story">
+          <figure class="visual-frame visual-frame-wide">
+            <img src="/hero.jpg" alt="AziziFitness training in Dubai" />
+            <figcaption>01 / The work starts before the city wakes.</figcaption>
+          </figure>
+          <figure class="visual-frame visual-frame-offset">
+            <img src="/training.jpg" alt="Coach-led training session" loading="lazy" />
+            <figcaption>02 / Coach the standard. Hold the line.</figcaption>
+          </figure>
+          <figure class="visual-frame visual-frame-narrow">
+            <img src="/team.jpg" alt="AziziFitness team and community" loading="lazy" />
+            <figcaption>03 / No one trains alone.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -91,6 +102,23 @@ import Layout from '../layouts/Layout.astro';
         <div style="margin-top: 2rem; text-align: center;">
             <p>Monthly 599 | Annual 5999 | Student 399</p>
         </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section-light">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Your next move</span>
+          <h2>Choose the support that fits your goal</h2>
+          <p>From your first session to long-term performance, our coaches help you build the right path.</p>
+        </div>
+        <div class="card-grid">
+          <a class="plan-card" href="/training"><h3>Personal Training</h3><p>One-to-one coaching and progress tracking.</p></a>
+          <a class="plan-card" href="/classes"><h3>Group Classes</h3><p>Coach-led intensity and community energy.</p></a>
+          <a class="plan-card" href="/nutrition"><h3>Nutrition</h3><p>Practical fuel plans built around real life.</p></a>
+          <a class="plan-card" href="/memberships"><h3>Memberships</h3><p>Flexible access for every stage of your journey.</p></a>
+        </div>
+        <div class="center-cta"><a class="btn btn-primary" href="/contact">Find my starting point</a></div>
       </div>
     </section>
 

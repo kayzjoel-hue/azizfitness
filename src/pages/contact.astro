@@ -8,16 +8,16 @@ import Layout from '../layouts/Layout.astro';
           <div class="section-header">
             <span class="eyebrow">Contact</span>
             <h2>Ready to start? Let’s make your next move easy.</h2>
-            <p>Message us on WhatsApp, email our team, or visit the gym in Dubai Marina.</p>
+            <p>Tell us your goal and preferred destination. We will route your enquiry to the right coach and location.</p>
           </div>
           <div class="contact-details">
-            <p><strong>Location:</strong> Dubai Marina, UAE</p>
+            <p><strong>Locations:</strong> Dubai Marina and GymTown DIFC, UAE</p>
             <p><strong>Hours:</strong> 5AM–11PM daily</p>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/971523463618">+971 52 346 3618</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/971523463618">+971 52 346 3618</a> · <a href="https://wa.me/971505026843">+971 50 502 6843</a></p>
             <p><strong>Email:</strong> <a href="mailto:simonaziz@yahoo.com">simonaziz@yahoo.com</a></p>
           </div>
           <div class="social-links">
-            <a href="https://www.instagram.com/reel/C4ahwevSMEa/?igsh=ZzVoYXpvZzRhY3Vu" target="_blank">📸 Instagram</a>
+            <a href="https://www.instagram.com/azizifitness_dubai?utm_source=ig_web_button_share_sheet&amp;stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">📸 @azizifitness_dubai</a>
             <a href="https://www.linkedin.com/in/azizifitness-abdul-4a31a3160?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank">💼 LinkedIn</a>
           </div>
           <div class="support-block" style="margin-top:1.5rem;padding:1.2rem;border:1px solid rgba(255,255,255,0.12);border-radius:22px;background:rgba(255,255,255,0.03);">
@@ -26,16 +26,26 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
         <form id="premium-contact-form" class="card-highlight">
-          <h3>Membership Application</h3>
+          <h3>Start your upgrade</h3>
+          <p class="form-intro">A few details help us send you to the right service and destination.</p>
           <input type="text" name="name" placeholder="Full Name" required>
           <input type="email" name="email" placeholder="Email Address" required>
-          <select name="interest">
+          <select name="interest" required>
             <option value="membership">Membership</option>
             <option value="pt">Personal Training</option>
+            <option value="classes">Group Classes</option>
             <option value="nutrition">Nutrition</option>
+            <option value="kids">Youth Fitness</option>
+          </select>
+          <select name="location" required>
+            <option value="dubai-marina">Dubai Marina</option>
+            <option value="gymtown-difc">GymTown DIFC</option>
           </select>
           <textarea name="goals" placeholder="Briefly describe your fitness goals..."></textarea>
+          <label class="consent-check"><input type="checkbox" name="consent" required> <span>I agree to be contacted about my enquiry.</span></label>
           <button type="submit" class="btn btn-primary">Submit Application</button>
+          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          <p class="form-fallback">WhatsApp not available? <a href="mailto:simonaziz@yahoo.com">Email the team instead.</a></p>
         </form>
       </div>
     </section>
@@ -48,3 +58,27 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 </Layout>
+<script>
+  const form = document.querySelector<HTMLFormElement>('#premium-contact-form');
+  const status = document.querySelector<HTMLElement>('[data-form-status]');
+  const params = new URLSearchParams(window.location.search);
+  const requestedInterest = params.get('interest');
+  const interestField = form?.elements.namedItem('interest');
+  if (interestField instanceof HTMLSelectElement && requestedInterest && [...interestField.options].some((option) => option.value === requestedInterest)) {
+    interestField.value = requestedInterest;
+  }
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    const data = new FormData(form);
+    const service = String(data.get('interest'));
+    const location = String(data.get('location')).replace('-', ' ');
+    const destination = location === 'gymtown difc' ? '971505026843' : '971523463618';
+    const message = `Hi AziziFitness, my name is ${data.get('name')} (${data.get('email')}). I am interested in ${service} at ${location}. My goal: ${data.get('goals') || 'I would like help choosing the right option.'}`;
+    if (status) status.textContent = 'Opening WhatsApp with your enquiry…';
+    window.open(`https://wa.me/${destination}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+  });
+</script>

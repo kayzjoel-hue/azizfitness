@@ -67,8 +67,35 @@ import Layout from '../layouts/Layout.astro';
             <div><strong>Food variety</strong><p>Menus you’ll actually enjoy and sustain.</p></div>
             <div><strong>Progress check-ins</strong><p>Adjustments that keep results moving forward.</p></div>
           </div>
-          <a class="btn btn-primary" href="https://wa.me/971523463618?text=Hi%20Azizfitness%2C%20I%20want%20nutrition%20coaching">Start nutrition coaching</a>
+          <a class="btn btn-primary" href="/contact?interest=nutrition">Start nutrition coaching</a>
         </div>
       </div>
     </section>
 </Layout>
+<script>
+  const macroForm = document.querySelector<HTMLFormElement>('#macro-form');
+  const macroResults = document.querySelector<HTMLElement>('#macro-results');
+  macroForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!macroForm.checkValidity()) {
+      macroForm.reportValidity();
+      return;
+    }
+    const data = new FormData(macroForm);
+    const weight = Number(data.get('weight'));
+    const height = Number(data.get('height'));
+    const age = Number(data.get('age'));
+    const activity = Number(data.get('activity'));
+    const gender = data.get('gender') === 'female' ? -161 : 5;
+    const goal = data.get('goal');
+    const bmr = 10 * weight + 6.25 * height - 5 * age + gender;
+    const adjustment = goal === 'cut' ? -500 : goal === 'bulk' ? 500 : 0;
+    const calories = Math.round(bmr * activity + adjustment);
+    const protein = Math.round(weight * 1.8);
+    const fats = Math.round(weight * 0.8);
+    const carbs = Math.max(0, Math.round((calories - protein * 4 - fats * 9) / 4));
+    if (macroResults) {
+      macroResults.innerHTML = `<div class="macro-result-card"><strong>Estimated daily target</strong><p>${calories} kcal · ${protein}g protein · ${carbs}g carbs · ${fats}g fat</p><small>Use this as a starting estimate and speak with a qualified nutrition coach before making major changes.</small></div>`;
+    }
+  });
+</script>

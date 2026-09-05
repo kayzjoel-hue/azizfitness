@@ -8,7 +8,7 @@ The goal was to modernize the legacy static HTML/CSS/JS AzizFitness website into
 ## 2. Tech Stack
 - **Framework:** [Astro](https://astro.build/) (Static Site Generator)
 - **Styling:** Vanilla CSS (Modern dark-mode aesthetic with custom gold branding)
-- **Interactivity:** Vanilla JavaScript (`main.js`)
+- **Interactivity:** Inline Astro page scripts and shared layout JavaScript
 
 ## 3. Project Structure
 The project is located in `azizfitness-new/`.
@@ -48,6 +48,6 @@ To generate the final static files:
 - The branding (fonts: 'Inter', 'Space Grotesk'; color: #C6A86B) was applied via a centralized `styles.css`.
 
 ## 7. Next Steps for Colleague
-1. **Verify Functionality:** Ensure `main.js` still correctly interacts with the new markup (mobile menu, calculator, etc.).
-2. **Dynamic Metadata:** Improve SEO by making page titles/descriptions dynamic in `Layout.astro`.
+1. **Verify Functionality:** Test the mobile menu, macro calculator, contact routing, and FAQ assistant after content changes.
+2. **Content alignment:** Confirm authoritative locations, phone routing, and documentary/media content before publishing.
 3. **Deployment:** Point your preferred hosting platform (Netlify, Vercel, etc.) to the `dist/` directory.

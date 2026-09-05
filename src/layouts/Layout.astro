@@ -1,13 +1,26 @@
 ---
-const { title } = Astro.props;
+const {
+  title = 'AZIZIFITNESS | BUILT FROM WITHIN - Dubai',
+  description = 'AZIZIFITNESS Dubai - Built From Within. Sports-specific training, group classes, nutrition coaching, and personal training led by Abdulazizi Musisi.',
+} = Astro.props;
+const canonicalPath = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replace(/\/$/, '');
+const canonicalUrl = `https://azizifitness.vercel.app${canonicalPath}`;
 ---
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+        <title>{title}</title>
+        <meta name="description" content={description}>
+        <meta property="og:title" content={title}>
+        <meta property="og:description" content={description}>
+        <meta property="og:image" content="/images/hero-real.jpg">
+        <meta property="og:url" content={canonicalUrl}>
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <link rel="canonical" href={canonicalUrl}>
 		<link rel="stylesheet" href="/styles.css">
 	</head>
 	<body>
@@ -15,20 +28,20 @@ const { title } = Astro.props;
 		<header class="site-header">
             <div class="container header-inner">
               <a class="brand" href="/"><img src="/Logo.png" alt="AZIZIFITNESS logo" class="brand-logo"><span>AZIZIFITNESS</span></a>
-              <nav class="site-nav">
+              <nav class="site-nav" aria-label="Primary navigation">
                 <a href="/#origins">ORIGINS</a>
-                <a href="/#philosophy">PHILOSOPHY</a>
-                <a href="/#lifestyle">LIFESTYLE</a>
-                <a href="/#athletes">ATHLETES</a>
-                <a href="/#new-era">NEW ERA</a>
-                <a href="/#talk-show">TALK SHOW</a>
+                <a href="/training">TRAINING</a>
+                <a href="/classes">CLASSES</a>
+                <a href="/nutrition">NUTRITION</a>
+                <a href="/memberships">MEMBERSHIPS</a>
+                <a href="/contact">CONTACT</a>
               </nav>
-              <button class="menu-toggle" aria-label="Toggle Navigation">
+              <button class="menu-toggle" aria-label="Toggle Navigation" type="button" onclick="var n=document.querySelector('.site-nav'); n.classList.toggle('open'); this.classList.toggle('active');">
                 <span></span>
                 <span></span>
                 <span></span>
               </button>
-              <a class="btn btn-gold" href="https://wa.me/971505026843?text=Hi%20AziziFitness%20I%20saw%20GET%20THE%20KIDS%20FIT%20and%20want%20to%20start%20my%20upgrade" target="_blank">START JOURNEY</a>
+              <a class="btn btn-gold" href="/contact">START JOURNEY</a>
             </div>
           </header>
 		<main>
@@ -37,7 +50,114 @@ const { title } = Astro.props;
 		<footer class="site-footer">
             <div class="container footer-inner">
               <p>© 2026 AZIZIFITNESS — Modern OS-Style Premium Gym Dubai</p>
+		    <nav aria-label="Legal">
+		      <a href="/privacy">Privacy</a>
+		      <a href="/terms">Terms</a>
+		    </nav>
+		  </div>
+		</footer>
+          <aside class="chatbot" data-chatbot aria-label="AziziFitness assistant">
+            <button class="chatbot-toggle" type="button" aria-expanded="false" aria-controls="chatbot-panel">
+              <span aria-hidden="true">✦</span> Ask AziziFitness
+            </button>
+            <div class="chatbot-panel" id="chatbot-panel" hidden>
+              <div class="chatbot-header">
+                <div>
+                  <strong>AziziFitness guide</strong>
+                  <p>Quick answers, then we connect you to the team.</p>
+                </div>
+                <button class="chatbot-close" type="button" aria-label="Close assistant">×</button>
+              </div>
+              <div class="chatbot-messages" data-chatbot-messages aria-live="polite">
+                <p class="chatbot-message chatbot-message-assistant">What would you like help with?</p>
+              </div>
+              <div class="chatbot-prompts" data-chatbot-prompts>
+                <button type="button" data-question="What services do you offer?">Services</button>
+                <button type="button" data-question="Where are you located?">Locations</button>
+                <button type="button" data-question="How do I get started?">Get started</button>
+              </div>
+              <a class="chatbot-cta" href="/contact">Talk to the team</a>
             </div>
-          </footer>
+          </aside>
+<script is:inline>
+(function() {
+  function initMenu() {
+    var toggle = document.querySelector('.menu-toggle');
+    var nav = document.querySelector('.site-nav');
+    if (!toggle || !nav) { 
+      console.log('Menu elements not found');
+      return; 
+    }
+    console.log('AZIZIFITNESS iPhone fix ready');
+    
+    // Remove old listeners by cloning
+    var newToggle = toggle.cloneNode(true);
+    toggle.parentNode.replaceChild(newToggle, toggle);
+    toggle = newToggle;
+    
+    // Simple click only - iPhone hates touchstart+preventDefault
+    toggle.onclick = function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var isOpen = nav.classList.contains('open');
+      if (isOpen) {
+        nav.classList.remove('open');
+        toggle.classList.remove('active');
+        document.body.style.overflow = '';
+      } else {
+        nav.classList.add('open');
+        toggle.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      console.log('Menu toggled, open:', !isOpen);
+      return false;
+    };
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMenu);
+  } else {
+    initMenu();
+  }
+  // Also try after 500ms for iOS
+  setTimeout(initMenu, 500);
+})();
+
+(function() {
+  var root = document.querySelector('[data-chatbot]');
+  if (!root) return;
+  var toggle = root.querySelector('.chatbot-toggle');
+  var panel = root.querySelector('.chatbot-panel');
+  var close = root.querySelector('.chatbot-close');
+  var messages = root.querySelector('[data-chatbot-messages]');
+  var prompts = root.querySelector('[data-chatbot-prompts]');
+  var answers = {
+    'What services do you offer?': 'We offer memberships, personal training, group classes, nutrition coaching, and youth fitness. Choose a service on the contact page and we will guide you to the right next step.',
+    'Where are you located?': 'We serve Dubai through our Dubai Marina and GymTown DIFC destinations. Tell us which service you want and the team will route you to the best location.',
+    'How do I get started?': 'Start with a quick enquiry. Select your goal and preferred destination on the contact page, or message the team on WhatsApp for a faster reply.'
+  };
+  function setOpen(open) {
+    panel.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    if (open) root.querySelector('button[data-question]')?.focus();
+  }
+  function ask(question) {
+    var userMessage = document.createElement('p');
+    userMessage.className = 'chatbot-message chatbot-message-user';
+    userMessage.textContent = question;
+    var answer = document.createElement('p');
+    answer.className = 'chatbot-message chatbot-message-assistant';
+    answer.textContent = answers[question] || 'Our team can help with that. Send us your goal and preferred service on the contact page.';
+    messages.append(userMessage, answer);
+    messages.scrollTop = messages.scrollHeight;
+  }
+  toggle.addEventListener('click', function() { setOpen(panel.hidden); });
+  close.addEventListener('click', function() { setOpen(false); toggle.focus(); });
+  prompts.addEventListener('click', function(event) {
+    var button = event.target.closest('[data-question]');
+    if (button) ask(button.getAttribute('data-question'));
+  });
+})();
+</script>
 	</body>
 </html>
