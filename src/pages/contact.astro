@@ -13,8 +13,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="contact-details">
             <p><strong>Locations:</strong> Dubai Marina and GymTown DIFC, UAE</p>
             <p><strong>Hours:</strong> 5AM–11PM daily</p>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/971523463618">+971 52 346 3618</a> · <a href="https://wa.me/971505026843">+971 50 502 6843</a></p>
-            <p><strong>Email:</strong> <a href="mailto:simonaziz@yahoo.com">simonaziz@yahoo.com</a></p>
+            <p><strong>Enquiries:</strong> Use the secure form to reach the AziziFitness team.</p>
           </div>
           <div class="social-links">
             <a href="https://www.instagram.com/azizifitness_dubai?utm_source=ig_web_button_share_sheet&amp;stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">📸 @azizifitness_dubai</a>
@@ -30,12 +29,17 @@ import Layout from '../layouts/Layout.astro';
           <p class="form-intro">A few details help us send you to the right service and destination.</p>
           <input type="text" name="name" placeholder="Full Name" required>
           <input type="email" name="email" placeholder="Email Address" required>
+          <input type="tel" name="phone" placeholder="Phone (optional)">
           <select name="interest" required>
             <option value="membership">Membership</option>
             <option value="pt">Personal Training</option>
             <option value="classes">Group Classes</option>
             <option value="nutrition">Nutrition</option>
             <option value="kids">Youth Fitness</option>
+            <option value="basketball-development">Basketball Development</option>
+            <option value="inclusive">Inclusive / Adaptive Fitness</option>
+            <option value="coach">Coach Registration</option>
+            <option value="collaborator">Collaboration</option>
           </select>
           <select name="location" required>
             <option value="dubai-marina">Dubai Marina</option>
@@ -45,7 +49,7 @@ import Layout from '../layouts/Layout.astro';
           <label class="consent-check"><input type="checkbox" name="consent" required> <span>I agree to be contacted about my enquiry.</span></label>
           <button type="submit" class="btn btn-primary">Submit Application</button>
           <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-          <p class="form-fallback">WhatsApp not available? <a href="mailto:simonaziz@yahoo.com">Email the team instead.</a></p>
+          <p class="form-fallback">Your enquiry is sent securely to the AziziFitness team.</p>
         </form>
       </div>
     </section>
@@ -63,11 +67,12 @@ import Layout from '../layouts/Layout.astro';
   const status = document.querySelector<HTMLElement>('[data-form-status]');
   const params = new URLSearchParams(window.location.search);
   const requestedInterest = params.get('interest');
+  const requestedCoach = params.get('coach');
   const interestField = form?.elements.namedItem('interest');
   if (interestField instanceof HTMLSelectElement && requestedInterest && [...interestField.options].some((option) => option.value === requestedInterest)) {
     interestField.value = requestedInterest;
   }
-  form?.addEventListener('submit', (event) => {
+  form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (!form.checkValidity()) {
       form.reportValidity();
@@ -76,9 +81,25 @@ import Layout from '../layouts/Layout.astro';
     const data = new FormData(form);
     const service = String(data.get('interest'));
     const location = String(data.get('location')).replace('-', ' ');
-    const destination = location === 'gymtown difc' ? '971505026843' : '971523463618';
-    const message = `Hi AziziFitness, my name is ${data.get('name')} (${data.get('email')}). I am interested in ${service} at ${location}. My goal: ${data.get('goals') || 'I would like help choosing the right option.'}`;
-    if (status) status.textContent = 'Opening WhatsApp with your enquiry…';
-    window.open(`https://wa.me/${destination}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+    const idempotencyKey = crypto.randomUUID();
+    if (status) status.textContent = 'Sending your enquiry securely…';
+    const response = await fetch('/api/enquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        programmeSlug: service,
+        coachSlug: requestedCoach || undefined,
+        location,
+        clientName: data.get('name'),
+        clientEmail: data.get('email'),
+        clientPhone: data.get('phone'),
+        message: data.get('goals') || 'I would like help choosing the right option.',
+        consent: data.get('consent') === 'on',
+        idempotencyKey,
+      }),
+    });
+    const result = await response.json();
+    if (status) status.textContent = result.message || result.error || 'Unable to send your enquiry.';
+    if (response.ok) form.reset();
   });
 </script>

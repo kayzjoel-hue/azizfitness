@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { programmes } from '../data/registry';
+const programme = programmes.find((item) => item.category === 'Inclusive / Adaptive');
+---
+<Layout title="AZIZFITNESS | Inclusive Fitness">
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Inclusive / Adaptive</span>
+        <h1>Support that starts with the individual.</h1>
+        <p>We use inclusive and adaptive language because people are not a category. Specialist coaches and programme claims are published only after validation.</p>
+      </div>
+      {programme && (
+        <article class="plan-card registry-feature">
+          <span class="registry-status">{programme.availability}</span>
+          <h2>{programme.name}</h2>
+          <p>{programme.description}</p>
+          <div class="feature-list">
+            <div><strong>Adaptive training</strong><span>Programme scope to be confirmed with validated coaches.</span></div>
+            <div><strong>Accessibility information</strong><span>Tell the team what support you need so we can respond accurately.</span></div>
+            <div><strong>Enquire about support</strong><span>We will not promise specialist provision before it is verified.</span></div>
+          </div>
+          <a class="btn btn-primary" href="/contact?interest=inclusive">Enquire about inclusive fitness</a>
+        </article>
+      )}
+    </div>
+  </section>
+</Layout>

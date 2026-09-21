@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { programmeBySlug } from '../../data/registry';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const coaches = (await getCollection('coaches_public')).filter(({ data }) => data.is_published && !['SUSPENDED', 'ARCHIVED'].includes(data.verification_status));
+  return coaches.map((coach) => ({ params: { slug: coach.data.slug }, props: { coach: coach.data } }));
+}
+
+const { coach } = Astro.props;
+const publicStatus = coach.verification_status === 'PENDING_VERIFICATION' ? 'Registered — Pending Verification' : coach.verification_status;
+---
+<Layout title={`AZIZFITNESS | ${coach.name}`}>
+  <section class="section section-light">
+    <div class="container profile-layout">
+      <div>
+        <img class="profile-photo" src={coach.photo_url || '/coaches.jpg'} alt={`Portrait of ${coach.name}`} />
+        <span class="eyebrow">Coach Profile</span>
+        <h1>{coach.name}</h1>
+        <p class="profile-title">{coach.specializations.join(' · ')}</p>
+        <p>{coach.bio}</p>
+        <div class="profile-actions">
+          <a class="btn btn-primary" href={`/contact?interest=basketball-development&coach=${coach.slug}`}>Work with this coach</a>
+        </div>
+      </div>
+      <aside class="profile-card">
+        <span class="registry-status">{publicStatus}</span>
+        <p><strong>Specialization</strong><br />{coach.specializations.join(', ')}</p>
+        <p><strong>Programme</strong><br />{coach.programmes.join(', ')}</p>
+        <p><strong>Public contact</strong><br />Use the AziziFitness enquiry form to contact the team about this coach.</p>
+      </aside>
+    </div>
+  </section>
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Verification Record</span>
+        <h2>Transparent by design.</h2>
+        <p>This profile does not claim qualifications, teams coached, certifications, or achievements that have not been supplied and reviewed.</p>
+      </div>
+      <div class="section-header registry-follow-up">
+        <span class="eyebrow">Linked programme</span>
+        {coach.programmes.map((slug) => {
+          const programme = programmeBySlug(slug);
+          return programme ? <p><a class="btn btn-primary" href={`/programmes#${programme.slug}`}>{programme.name}</a></p> : null;
+        })}
+      </div>
+    </div>
+  </section>
+</Layout>

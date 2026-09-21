@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { collaborators } from '../data/registry';
+---
+<Layout title="AZIZFITNESS | Collaborators">
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Collaborator Network</span>
+        <h1>Community is part of the programme.</h1>
+        <p>Collaborators, programme leads, and community builders will have a clear place in the AziziFitness ecosystem.</p>
+      </div>
+      <div class="card-grid">
+        {collaborators.map((collaborator) => (
+          <article class="plan-card">
+            <span class="registry-status">{collaborator.status}</span>
+            <h2>{collaborator.name}</h2>
+            <p><strong>{collaborator.type}</strong></p>
+            <p>{collaborator.description}</p>
+          </article>
+        ))}
+      </div>
+      <div class="center-cta"><a class="btn btn-primary" href="/contact?interest=collaborator">Talk about collaborating</a></div>
+    </div>
+  </section>
+</Layout>

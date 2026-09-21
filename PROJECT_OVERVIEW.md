@@ -6,7 +6,7 @@ This document provides an overview of the AzizFitness website modernization proj
 The goal was to modernize the legacy static HTML/CSS/JS AzizFitness website into a maintainable, component-based architecture using **Astro**. This improves performance, developer experience, and scalability while preserving the original content and design.
 
 ## 2. Tech Stack
-- **Framework:** [Astro](https://astro.build/) (Static Site Generator)
+- **Framework:** [Astro](https://astro.build/) (Vercel server output with prerendered public coach pages)
 - **Styling:** Vanilla CSS (Modern dark-mode aesthetic with custom gold branding)
 - **Interactivity:** Inline Astro page scripts and shared layout JavaScript
 
@@ -19,7 +19,7 @@ azizfitness-new/
 ├── src/
 │   ├── layouts/     # Reusable Page Layout (base HTML, nav, footer)
 │   └── pages/       # Individual site pages (.astro files)
-├── astro.config.mjs # Astro configuration
+├── astro.config.mjs # Astro configuration and Vercel adapter
 └── package.json     # Project dependencies and scripts
 ```
 
@@ -27,6 +27,8 @@ azizfitness-new/
 - **Unified Layout:** Instead of repeating navigation and footer code across every HTML file, we created a single `Layout.astro` component in `src/layouts/`.
 - **Component-Based:** Each page in `src/pages/` consumes the `Layout` component, reducing code duplication.
 - **Asset Handling:** Static assets are served from the `public/` directory, accessed via absolute paths (e.g., `/images/logo.png`).
+- **Privacy boundary:** Public coach pages read only `src/content/coaches_public/`; private contact, management, professional evidence, and audit schema are isolated in ordered `supabase/migrations/` files and are not seeded with real private data.
+- **Contact Gateway:** Public enquiries submit to `POST /api/enquiry`; coach contact details are not exposed to browsers.
 
 ## 5. Maintenance & Development
 
@@ -48,6 +50,6 @@ To generate the final static files:
 - The branding (fonts: 'Inter', 'Space Grotesk'; color: #C6A86B) was applied via a centralized `styles.css`.
 
 ## 7. Next Steps for Colleague
-1. **Verify Functionality:** Test the mobile menu, macro calculator, contact routing, and FAQ assistant after content changes.
+1. **Verify Functionality:** Test the mobile menu, macro calculator, Contact Gateway, and FAQ assistant after content changes.
 2. **Content alignment:** Confirm authoritative locations, phone routing, and documentary/media content before publishing.
-3. **Deployment:** Point your preferred hosting platform (Netlify, Vercel, etc.) to the `dist/` directory.
+3. **Deployment:** Deploy through Vercel with `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` configured only as server environment variables. Do not connect the local prototype to a remote project without approval.

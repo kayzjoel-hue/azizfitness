@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { programmes } from '../data/registry';
+const youthProgrammes = programmes.filter((programme) => programme.category === 'Youth');
+---
+<Layout title="AZIZFITNESS | Youth">
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Youth</span>
+        <h1>Build confidence through movement and sport.</h1>
+        <p>Kids and youth programmes will connect families with validated coaches, clear programme information, and safe next steps.</p>
+      </div>
+      <div class="card-grid">
+        {youthProgrammes.map((programme) => (
+          <article class="plan-card">
+            <span class="registry-status">{programme.availability}</span>
+            <h2>{programme.name}</h2>
+            <p>{programme.description}</p>
+            <a class="btn btn-primary" href="/contact?interest=kids">Enquire about youth fitness</a>
+          </article>
+        ))}
+      </div>
+      <p class="registry-note">Youth provision, safeguarding, coach qualifications, and session details are confirmed before publication.</p>
+    </div>
+  </section>
+</Layout>

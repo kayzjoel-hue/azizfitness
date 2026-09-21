@@ -148,6 +148,22 @@ img, video {
 .success-card p{padding:0 1rem 1rem;color:var(--muted);margin:0;}
 .resource-card, .faq-card{padding:1.5rem;}
 .resource-card h4, .faq-card h4{margin:0 0 .9rem;}
+.registry-status{display:inline-block;margin-bottom:1rem;padding:.4rem .7rem;border:1px solid rgba(198,168,107,.35);border-radius:999px;color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
+.coach-directory-photo{width:96px;height:96px;object-fit:cover;border-radius:50%;border:1px solid rgba(198,168,107,.35);margin-bottom:1rem;}
+.profile-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(260px,.6fr);gap:3rem;align-items:start;}
+.profile-layout h1{font-size:clamp(2.6rem,6vw,5rem);margin:.4rem 0 .6rem;}
+.profile-photo{width:min(100%,420px);aspect-ratio:1;object-fit:cover;border:1px solid rgba(198,168,107,.35);border-radius:28px;margin-bottom:2rem;}
+.profile-title{font-size:1.3rem;color:var(--gold);font-weight:700;}
+.profile-card{background:var(--surface-strong);border:1px solid var(--border);border-radius:24px;padding:1.5rem;}
+.profile-card p{color:var(--muted);margin:1rem 0 0;}
+.profile-card strong{color:var(--text);}
+.profile-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;}
+.verification-list span{color:var(--gold);}
+.registry-follow-up{margin-top:3rem;margin-bottom:0;}
+.registry-note{margin:2rem auto 0;max-width:42rem;text-align:center;color:var(--muted);}
+.registry-feature{max-width:760px;margin:0 auto;}
+.registry-feature .feature-list{margin:2rem 0;}
+@media(max-width:760px){.profile-layout{grid-template-columns:1fr;}.site-nav{gap:.75rem;}.site-nav a{font-size:.78rem;}}
 .contact-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:2rem;}
 .contact-details p{margin:.8rem 0;color:var(--muted);}
 .contact-details a{color:var(--accent);}

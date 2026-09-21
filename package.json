@@ -9,9 +9,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "verify:privacy": "node scripts/verify-privacy.mjs"
   },
   "dependencies": {
+    "@astrojs/vercel": "^11.0.10",
     "astro": "^7.2.2"
   }
 }

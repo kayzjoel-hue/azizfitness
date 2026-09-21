@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+const coaches = (await getCollection('coaches_public')).filter(({ data }) => data.is_published && !['SUSPENDED', 'ARCHIVED'].includes(data.verification_status));
+---
+<Layout title="AZIZFITNESS | Coaches">
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Coach Registry</span>
+        <h1>Meet the people who help you move forward.</h1>
+        <p>Every public coach profile carries a clear status while AziziFitness validates professional information.</p>
+      </div>
+      <div class="card-grid">
+        {coaches.map(({ data: coach }) => (
+          <article class="plan-card">
+            <img class="coach-directory-photo" src={coach.photo_url || '/coaches.jpg'} alt={`Portrait of ${coach.name}`} />
+            <span class="registry-status">{coach.verification_status === 'PENDING_VERIFICATION' ? 'Registered — Pending Verification' : coach.verification_status}</span>
+            <h2>{coach.name}</h2>
+            <p><strong>{coach.specializations[0]}</strong></p>
+            <p>{coach.specializations.join(' · ')}</p>
+            <a class="btn btn-secondary" href={`/coaches/${coach.slug}`}>View profile</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { programmes } from '../data/registry';
+---
+<Layout title="AZIZFITNESS | Programmes">
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Programme Registry</span>
+        <h1>Paths for adults, youth, athletes, and supported training.</h1>
+        <p>Programmes connect audiences, coaches, and future sessions without overstating what is currently available.</p>
+      </div>
+      <div class="card-grid">
+        {programmes.map((programme) => (
+          <article class="plan-card" id={programme.slug}>
+            <span class="registry-status">{programme.category} · {programme.availability}</span>
+            <h2>{programme.name}</h2>
+            <p><strong>For:</strong> {programme.audience}</p>
+            <p>{programme.description}</p>
+            <a class="btn btn-secondary" href={programme.category === 'Youth' ? '/youth' : programme.category === 'Inclusive / Adaptive' ? '/inclusive' : '/contact'}>Ask about this programme</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
