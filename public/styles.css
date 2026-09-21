@@ -164,7 +164,7 @@ img, video {
 .registry-feature{max-width:760px;margin:0 auto;}
 .registry-feature .feature-list{margin:2rem 0;}
 @media(max-width:760px){.profile-layout{grid-template-columns:1fr;}.site-nav{gap:.75rem;}.site-nav a{font-size:.78rem;}}
-.contact-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:2rem;}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.9fr);gap:2rem;}
 .contact-details p{margin:.8rem 0;color:var(--muted);}
 .contact-details a{color:var(--accent);}
 .form-intro{color:var(--muted);margin:0;}
@@ -191,6 +191,16 @@ img, video {
 .card-highlight input:focus, .card-highlight select:focus, .card-highlight textarea:focus {
   outline: none;
   border-color: var(--gold);
+}
+@media(max-width:767px){
+  .contact-grid{
+    grid-template-columns:1fr;
+    width:calc(100% - 2rem);
+  }
+  #premium-contact-form{
+    width:100%;
+    min-width:0;
+  }
 }
 .social-links{display:grid;gap:.65rem;margin-top:1.5rem;}
 .social-links a{display:inline-flex;align-items:center;gap:.65rem;padding:.95rem 1.2rem;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);color:var(--text);}
