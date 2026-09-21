@@ -13,7 +13,9 @@
     "verify:privacy": "node scripts/verify-privacy.mjs"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.10",
     "@astrojs/vercel": "^11.0.10",
-    "astro": "^7.2.2"
+    "astro": "^7.2.2",
+    "typescript": "^7.0.2"
   }
 }
