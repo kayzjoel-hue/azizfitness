@@ -165,6 +165,16 @@ img, video {
 .registry-feature .feature-list{margin:2rem 0;}
 @media(max-width:760px){.profile-layout{grid-template-columns:1fr;}.site-nav{gap:.75rem;}.site-nav a{font-size:.78rem;}}
 .contact-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.9fr);gap:2rem;}
+@media(max-width:767px){
+  .trainers-grid,
+  .package-grid,
+  .success-grid,
+  .resource-grid,
+  .faq-grid,
+  .section-split{
+    grid-template-columns:1fr;
+  }
+}
 .contact-details p{margin:.8rem 0;color:var(--muted);}
 .contact-details a{color:var(--accent);}
 .form-intro{color:var(--muted);margin:0;}
