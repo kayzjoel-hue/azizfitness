@@ -10,11 +10,16 @@ main { overflow-x: hidden; max-width: 100%; }
 
 :root {
   --bg: #080808;
+  --obsidian: #080808;
+  --canvas: #F5F5F0;
   --surface: #0f0f0f;
   --surface-strong: #151515;
   --text: #f5f5f5;
   --muted: #a0a0a0;
   --gold: #C6A86B; /* Core Gold */
+  --ice-blue: #A9D6E5;
+  --volt: #FFEB00;
+  --sage: #C8D5B9;
   --accent: var(--gold);
   --border: rgba(255,255,255,0.07);
   --font-display: 'Space Grotesk', sans-serif;

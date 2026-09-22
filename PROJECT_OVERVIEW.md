@@ -51,5 +51,6 @@ To generate the final static files:
 
 ## 7. Next Steps for Colleague
 1. **Verify Functionality:** Test the mobile menu, macro calculator, Contact Gateway, and FAQ assistant after content changes.
-2. **Content alignment:** Confirm authoritative locations, phone routing, and documentary/media content before publishing.
-3. **Deployment:** Deploy through Vercel with `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` configured only as server environment variables. Do not connect the local prototype to a remote project without approval.
+2. **Privacy boundary:** Run `npm run build`, then `npm run verify:boundary` to confirm generated public output contains no private coach fields.
+3. **Content alignment:** Confirm authoritative locations, phone routing, and documentary/media content before publishing.
+4. **Deployment:** Deploy through Vercel with `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` configured only as server environment variables. Do not connect the local prototype to a remote project without approval.

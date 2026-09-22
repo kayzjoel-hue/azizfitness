@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "verify:privacy": "node scripts/verify-privacy.mjs"
+    "verify:privacy": "node scripts/verify-privacy.mjs",
+    "verify:boundary": "node scripts/verify-boundary.mjs"
   },
   "dependencies": {
     "@astrojs/vercel": "^11.0.10",
