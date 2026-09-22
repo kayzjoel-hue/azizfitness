@@ -42,4 +42,7 @@ assert.notEqual(publicCoach.verification_status, 'SUSPENDED');
 assert.notEqual(publicCoach.verification_status, 'ARCHIVED');
 assert.equal(staticFiles.some((path) => path.includes('coaches') && path.includes(publicCoach.slug)), true);
 
+const professionalMigration = await readFile('supabase/migrations/0005_professional_linkedin_privacy.sql', 'utf8');
+assert.match(professionalMigration, /linkedin_is_public boolean not null default false/i);
+
 console.log(`Public boundary checks passed across ${staticFiles.length} built files.`);
