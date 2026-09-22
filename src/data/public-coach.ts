@@ -8,4 +8,5 @@ export interface PublicCoachProfile {
   programmes: string[];
   verificationStatus: 'SUBMITTED' | 'REGISTERED' | 'PENDING_VERIFICATION' | 'VERIFIED' | 'SUSPENDED' | 'ARCHIVED';
   isPublished: boolean;
+  title?: string;
 }

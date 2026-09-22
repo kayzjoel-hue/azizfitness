@@ -1,5 +1,5 @@
 {
-  "id": "ernest-mutsinze",
+  "id": "coach_ernest_001",
   "slug": "ernest-mutsinze",
   "name": "Ernest Mutsinze",
   "photo_url": "/ernest-mutsinze.png",
@@ -7,5 +7,6 @@
   "specializations": ["Basketball Coaching"],
   "programmes": ["basketball-development"],
   "verification_status": "PENDING_VERIFICATION",
-  "is_published": true
+  "is_published": true,
+  "title": "Basketball Coach"
 }

@@ -21,6 +21,7 @@ const coachesPublic = defineCollection({
       'ARCHIVED',
     ]),
     is_published: z.boolean(),
+    title: z.string().optional(),
   }),
 });
 

@@ -12,8 +12,10 @@ assert.deepEqual(publicKeys, [
   'programmes',
   'slug',
   'specializations',
+  'title',
   'verification_status',
 ]);
+assert.equal(publicCoach.id, 'coach_ernest_001');
 assert.equal(publicCoach.is_published, true);
 assert.notEqual(publicCoach.verification_status, 'SUSPENDED');
 assert.notEqual(publicCoach.verification_status, 'ARCHIVED');
